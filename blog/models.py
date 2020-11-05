@@ -15,3 +15,12 @@ class Post(models.Model):
     def publish(self):
         self.pub_date = timezone.now()
         self.save()
+
+    def summary(self):
+        return self.body[:100] + "..."
+
+    def pretty_pub_date(self):
+        return self.pub_date.strftime('%b %e %Y')
+
+    def pretty_create_date(self):
+        return self.creation_date.strftime('%b %e %Y')
